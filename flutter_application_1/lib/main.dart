@@ -8,20 +8,33 @@ void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: MyApp(),
-    // theme: themeData,
+    theme: themeData,
   ));
 }
 
 final ThemeData themeData = ThemeData(
-  canvasColor: Colors.lightBlue[100],
+  canvasColor: Colors.purple[300],
   accentColor: Colors.redAccent,
 );
 
 class MyApp extends StatelessWidget {
   @override
-  Widget build(BuildContext ctx) {
-    return Scaffold(
-      body: Center(child: Body()),
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("lib/image0.png"), fit: BoxFit.cover)),
+        child: Scaffold(
+            backgroundColor: Colors.transparent,
+            appBar: AppBar(
+              elevation: 0,
+              backgroundColor: Colors.transparent,
+              centerTitle: true,
+            ),
+            body: Center(child: Body())),
+      ),
     );
   }
 }
@@ -37,7 +50,7 @@ class Body extends StatelessWidget {
         },
         child:
             const Text('Click to get Started!', style: TextStyle(fontSize: 20)),
-        color: Colors.lightBlue[100],
+        color: Colors.purple[300],
         textColor: Colors.white,
         elevation: 5,
       ),
